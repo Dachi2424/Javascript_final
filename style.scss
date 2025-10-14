@@ -1,0 +1,318 @@
+@media screen and (min-width: 320px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    font-family: avenir;
+  }
+  input,
+  select,
+  button,
+  textarea,
+  label,
+  option {
+    font-family: avenir;
+  }
+  :root{
+    --main-color: #dd2803;
+  }
+  @font-face {
+    font-family: avenir;
+    src: url(./fonts/avenir-lt-pro/AvenirLTProLight.otf);
+    font-weight: 200;
+  }
+  @font-face {
+    font-family: avenir;
+    src: url(./fonts/avenir-lt-pro/AvenirLTProRoman.otf);
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: avenir;
+    src: url(./fonts/avenir-lt-pro/AvenirLTProHeavy.otf);
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: avenir;
+    src: url(./fonts/avenir-lt-pro/AvenirLTProBlack.otf);
+    font-weight: 600;
+  }
+  @font-face {
+    font-family: barlow;
+    src: url(./fonts/Barlow/Barlow-Light.ttf);
+    font-weight: 200;
+  }
+  @font-face {
+    font-family: barlow;
+    src: url(./fonts/Barlow/Barlow-Regular.ttf);
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: barlow;
+    src: url(./fonts/Barlow/Barlow-Medium.ttf);
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: barlow;
+    src: url(./fonts/Barlow/Barlow-Bold.ttf);
+    font-weight: 600;
+  }
+  @font-face {
+    font-family: barlow;
+    src: url(./fonts/Barlow/Barlow-Black.ttf);
+    font-weight: 900;
+  }
+
+  .header {
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 10;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-inline: 20px;
+    &__logo {
+      margin-right: auto;
+      font-family: barlow;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--main-color);
+      text-decoration: none;
+    }
+    &__logo-star{
+      color: black;
+      font-size: 10px;
+    }
+    &__nav{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+    &__cart-logo{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+    &__cart-img{
+      width: 30px;
+    }
+    &__cart-item-quantity{
+      font-weight: 200;
+      align-self: flex-end;
+      color: var(--main-color);
+    }
+    &__burger-bars{
+      font-size: 24px;
+      color: var(--main-color);
+      cursor: pointer;
+    }
+
+    //cart styles
+
+    &__cart-container{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      z-index: 11;
+      top:0;
+      left: 0;
+      background-color: white;
+      padding: 20px 20px 20px;
+      transform: translateX(100%);
+      transition: transform .4s ease-in-out;
+      &--open{
+        transform: translateX(0);
+        transition: transform .4s ease-in-out;
+      }
+    }
+    &__cart-text{
+      font-size: 20px;
+      font-family: barlow;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 5px;
+    }
+    &__cart-items-quantity{
+      font-weight: 200;
+      font-family: avenir;
+      font-size: 16px;
+      align-self: flex-end;
+    }
+    &__cart-xmark{
+      margin-left: auto;
+      cursor: pointer;
+      &:hover{
+        color:rgb(103, 103, 103)
+      }
+    }
+    &__cart-strip{
+      width: 100%;
+      height: 1px;
+      background-color: rgb(103, 103, 103);
+      margin-top: 20px;
+    }
+    &__empty-cart-text{
+      font-size: 20px;
+      font-weight: 200;
+      text-align: center;
+      margin-top: 170px;
+    }
+
+    //burger menu styles
+
+    &__menu{
+      position: fixed;
+      top:0;
+      left: 0;
+      z-index: 11;
+      background-color: white;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      transform: translateY(-100%);
+      transition: transform .3s ease-in-out;
+      display: block;
+      &--open{
+        transform: translateY(0);
+        transition: transform .3s ease-in-out;
+      }
+    }
+    &__menu-xmark{
+      color: var(--main-color);
+      font-size: 24px;
+      position: absolute;
+      right: 20px;
+      top: 26px;
+      cursor: pointer;
+    }
+    &__login{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      margin-top: 60px;
+      margin-bottom: 40px;
+      &--desktop{
+        display: none;
+      }
+    }
+    &__user-icon{
+      color: var(--main-color);
+      font-size: 24px;
+    }
+    &__login-text{
+      color: var(--main-color);
+      font-size: 18px;
+      font-weight: 200;
+      
+    }
+    &__ul{
+      list-style: none;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 35px;
+      overflow-y: auto;
+      &--desktop{
+        display: none;
+      }
+    }
+    &__link{
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+      font-family: barlow;
+      font-weight: 600;
+      &--active{
+        color: var(--main-color);
+      }
+    }
+    &__order-link-container{
+      display: none;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 1024px){
+  .header{
+    padding-inline: 50px 100px;
+    &__nav{
+      gap: 40px;
+    }
+    &__ul{
+      &--desktop{
+        flex-direction: row;
+        display: flex;
+      }
+    }
+    &__link{
+      &--desktop{
+        font-weight: 200;
+        font-family: avenir;
+        transition: .4s;
+        &:hover{
+          color: var(--main-color);
+          transition: .4s;
+        }
+      }
+    }
+    &__login{
+      &--desktop{
+        margin-top: 0;
+        margin-bottom: 0;
+        white-space: nowrap;
+        display: flex;
+      }
+    }
+    &__burger-bars{
+      display: none !important;
+    }
+    &__menu{
+      display: none !important;
+      &--open{
+        display: none !important;
+      }
+    }
+    &__order-link-container{
+      background-color: var(--main-color);
+      transform: rotate(90deg) translate(30%, -75%);
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 200px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    &__order-link{
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      font-weight: 200;
+    }
+  }
+}
