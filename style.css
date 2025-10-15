@@ -245,6 +245,82 @@
   .header__order-link-container {
     display: none;
   }
+  .hero {
+    height: calc(100vh - 80px);
+    margin-top: 80px;
+    background-image: url(./images/main-hero.avif);
+    background-size: cover;
+    background-position: center;
+    background-color: #FBE690;
+    padding: 30px 20px;
+  }
+  .hero__delivery-text {
+    font-family: barlow;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .hero__add-text {
+    font-family: barlow;
+    font-size: 42px;
+    font-weight: 600;
+    color: var(--main-color);
+    margin-bottom: 20px;
+  }
+  .hero__order-btn {
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    color: white;
+    font-size: 16px;
+    font-weight: 200;
+    width: 180px;
+    height: 50px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  .hero__order-btn:hover {
+    background-color: white;
+    transition: 0.3s;
+  }
+  .hero__order-btn:hover .hero__link {
+    color: var(--main-color);
+    transition: 0.3s;
+  }
+  .hero__link {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  .order {
+    padding: 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+  .order__card {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .order__image {
+    width: 60px;
+  }
+  .order__method {
+    font-size: 18px;
+    font-family: barlow;
+    font-weight: 600;
+  }
+  .order__method-info {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 200;
+    line-height: 24px;
+  }
 }
 @media screen and (min-width: 768px) {
   .header__menu {
@@ -262,6 +338,23 @@
     left: unset;
     right: 0;
     border-left: 1px solid rgb(200, 200, 200);
+  }
+  .order {
+    padding: 30px 0 30px;
+  }
+  .order__card {
+    width: 400px;
+    gap: 22px;
+  }
+  .order__image {
+    width: 60px;
+  }
+  .order__method {
+    font-size: 22px;
+  }
+  .order__method-info {
+    font-size: 18px;
+    line-height: 28px;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -317,5 +410,38 @@
     color: white;
     font-size: 18px;
     font-weight: 200;
+  }
+  .hero {
+    padding: 100px 85px;
+  }
+  .hero__delivery-text {
+    font-size: 52px;
+    margin-bottom: 20px;
+  }
+  .hero__add-text {
+    font-size: 120px;
+    width: 725px;
+    margin-bottom: 35px;
+  }
+  .hero__order-btn {
+    height: 60px;
+    width: 200px;
+  }
+  .hero__link {
+    font-size: 18px;
+  }
+  .order {
+    background-color: #F9F2EA;
+    flex-direction: row;
+    height: 70vh;
+    gap: 40px;
+  }
+  .order__card {
+    background-color: white;
+    padding: 0 95px 0;
+    height: 400px;
+  }
+  .order__image {
+    width: 70px;
   }
 }/*# sourceMappingURL=style.css.map */
