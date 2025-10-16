@@ -151,7 +151,7 @@
     &__dark-bg{
       position: fixed;
       width: 100%;
-      height: 100vh;
+      height: 100svh;
       top: 0;
       left: 0;
       z-index: 10;
@@ -255,7 +255,7 @@
   }
 
   .hero{
-    height: calc(100vh - 80px);
+    height: calc(100svh - 80px);
     margin-top: 80px;
     background-image: url(./images/main-hero.avif);
     background-size: cover;
@@ -331,6 +331,100 @@
       line-height: 24px;
     }
   }
+
+  .small-ad{
+    height: 27svh;
+    background-color: #F9F2EA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2px;
+    &__upper{
+      font-size: 28px;
+      font-family: barlow;
+      color: var(--main-color);
+      font-weight: 600;
+    }
+    &__lower{
+      font-size: 28px;
+      font-family: barlow;
+      color: var(--main-color);
+      font-weight: 600;
+    }
+  }
+
+  .favorites{
+    background-color: white;
+    min-height: calc(100svh - 80px);
+    padding: 30px 0 30px;
+    &__text-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding-inline: 30px;
+      margin-bottom: 40px;
+    }
+    &__star{
+      width: 42px;
+    }
+    &__main-text{
+      text-align: center;
+      font-size: 26px;
+      font-family: barlow;
+      font-weight: 600;
+    }
+    &__container{
+      background-color: white;
+      padding-inline: 30px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+    &__card{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    &__img{
+      width: 100%;
+      object-fit: cover;
+    }
+    &__product-name{
+      text-align: center;
+      font-family: barlow;
+      font-weight: 600;
+      font-size: 20px;
+    }
+    &__button{
+      background-color: var(--main-color);
+      border: 1px solid var(--main-color);
+      width: 200px;
+      height: 50px;
+      display: block;
+      margin: 30px auto 0;
+      cursor: pointer;
+      transition: .3s;
+      &:hover .favorites__link{
+        color: var(--main-color);
+        transition: .3s;
+      }
+      &:hover{
+        background-color: transparent;
+        transition: .3s;
+      }
+    }
+    &__link{
+      color: white;
+      font-size: 16px;
+      text-decoration: none;
+      font-weight: 200;
+      transition: .3s;
+    }
+  }
 }
 
 
@@ -375,6 +469,41 @@
     &__method-info{
       font-size: 18px;
       line-height: 28px;
+    }
+  }
+
+  .small-ad{
+    height: 32svh;
+    &__upper{
+      font-size: 36px;
+    }
+    &__lower{
+      font-size: 36px;
+    }
+  }
+
+  .favorites{
+    padding: 50px 0 40px;
+    &__text-container{
+      gap: 24px;
+    }
+    &__star{
+      width: 50px;
+    }
+    &__main-text{
+      font-size: 40px;
+    }
+    &__container{
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    &__card{
+      width: 350px;
+    }
+
+    &__button{
+      margin: 40px auto 0;
     }
   }
 }
@@ -469,17 +598,54 @@
 
 
   .order{
+    padding-inline: 0;
     background-color: #F9F2EA;
     flex-direction: row;
     height: 70vh;
-    gap: 40px;
+    gap: 60px;
     &__card{
       background-color: white;
       padding: 0 95px 0;
-      height: 400px;
+      height: 420px;
     }
     &__image{
       width: 70px;
+    }
+  }
+
+  .small-ad{
+    height: 44vh;
+    padding-bottom: 90px;
+    gap: 0;
+    &__upper{
+      font-size: 80px;
+    }
+    &__lower{
+      font-size: 80px;
+    }
+  }
+
+  .favorites{
+    padding: 50px 0 30px;
+    &__text-container{
+      margin-bottom: 65px;
+    }
+    &__container{
+      gap: 40px;
+    }
+    &__card{
+      gap: 20px;
+    }
+    &__product-name{
+      font-size: 22px;
+    }
+    &__button{
+      margin-top: 90px;
+      width: 230px;
+      height: 60px;
+    }
+    &__link{
+      font-size: 18px;
     }
   }
 }
