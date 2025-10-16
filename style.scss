@@ -426,6 +426,53 @@
       transition: .3s;
     }
   }
+
+  .special{
+    min-height: 100svh;
+    padding: 5svh 0 5svh;
+    background-color: #F9F2EA;
+    &__main-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      background-color: white;
+      padding: 30px 30px 30px;
+      gap: 20px;
+    }
+    &__text-container{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    &__star{
+      width: 42px;
+    }
+    &__main-text{
+      font-size: 26px;
+      font-weight: 600;
+      font-family: barlow;
+      text-align: center;
+      width: 160px;
+    }
+    &__text{
+      font-size: 18px;
+      font-family: barlow;
+      font-weight: 600;
+    }
+    &__paragraph{
+      font-size: 15px;
+      font-weight: 200;
+      text-align: center;
+      line-height: 25px;
+    }
+    &__image{
+      width: 100%;
+      height: 80vw;
+      object-fit: cover;
+    }
+  }
 }
 
 
@@ -505,6 +552,27 @@
 
     &__button{
       margin: 40px auto 0;
+    }
+  }
+
+  .special{
+    min-height: unset;
+    height: 80svh;
+    padding: 90px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__main-container{
+      height: 100%;
+      width: 45%;
+    }
+    &__text-container{
+      padding: 40px 40px 0;
+    }
+    
+    &__image{
+      height: 100%;
+      width: 45%;
     }
   }
 }
@@ -657,5 +725,31 @@
   @keyframes moveCardsUp {
     100%{transform: translateY(0);
       opacity: 1;}
+  }
+
+  .special{
+    height: 80vh;
+    padding: 90px 80px;
+    &__main-container{
+      gap: 40px;
+    }
+    &__text-container{
+      gap: 30px;
+    }
+    &__star{
+      width: 52px;
+    }
+    &__main-text{
+      font-size: 40px;
+      width: 222px;
+    }
+    &__text{
+      font-size: 22px;
+    }
+    &__paragraph{
+      font-size: 18px;
+      width: 350px;
+      line-height: 30px;
+    }
   }
 }
