@@ -23,3 +23,40 @@ function closeMenu(){
   let burgerMenu = document.querySelector(".header__menu")
   burgerMenu.classList.remove("header__menu--open")
 }
+
+
+//main page favorites
+let favoritesSection = document.querySelector(".favorites")
+let favoritesContainer = document.querySelector(".favorites__container")
+fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
+.then(res => res.json())
+.then(data => {for(i = 0; i <= 2; i++){
+  favoritesContainer.innerHTML += addCard(data[i])
+}})
+
+function addCard(item){
+  return `<div class="favorites__card">
+          <img class="favorites__img" src="${item.image}" alt="">
+          <h2 class="favorites__product-name">${item.name.toUpperCase()}</h2>
+        </div>`
+}
+
+
+
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Add a class when section becomes visible
+      favoritesContainer.classList.add('animate')
+      
+      // Optional: stop observing once animation starts
+      observer.unobserve(favoritesContainer)
+    }
+  })
+}, {
+  threshold: 0 // 30% visible before triggering
+})
+
+
+observer.observe(favoritesContainer)

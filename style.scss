@@ -392,6 +392,7 @@
     &__img{
       width: 100%;
       object-fit: cover;
+      background-color: #F9F2EA;
     }
     &__product-name{
       text-align: center;
@@ -632,6 +633,8 @@
     }
     &__container{
       gap: 40px;
+      transform: translateY(70%);
+      opacity: 0;
     }
     &__card{
       gap: 20px;
@@ -647,5 +650,12 @@
     &__link{
       font-size: 18px;
     }
+  }
+  .animate{
+    animation: moveCardsUp .7s ease-out forwards;
+  }
+  @keyframes moveCardsUp {
+    100%{transform: translateY(0);
+      opacity: 1;}
   }
 }

@@ -382,6 +382,7 @@
     width: 100%;
     -o-object-fit: cover;
        object-fit: cover;
+    background-color: #F9F2EA;
   }
   .favorites__product-name {
     text-align: center;
@@ -589,6 +590,8 @@
   }
   .favorites__container {
     gap: 40px;
+    transform: translateY(70%);
+    opacity: 0;
   }
   .favorites__card {
     gap: 20px;
@@ -603,5 +606,14 @@
   }
   .favorites__link {
     font-size: 18px;
+  }
+  .animate {
+    animation: moveCardsUp 0.7s ease-out forwards;
+  }
+  @keyframes moveCardsUp {
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 }/*# sourceMappingURL=style.css.map */
