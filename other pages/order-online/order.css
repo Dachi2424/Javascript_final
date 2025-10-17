@@ -175,6 +175,80 @@
   .menu__lower-side {
     height: 40%;
   }
+  .menu__products-container {
+    width: 100%;
+  }
+  .menu__container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(0, 144vw);
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .menu__product-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .menu__product-image {
+    width: 100%;
+    height: 60%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+  }
+  .menu__product-lower-side {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .menu__product-name {
+    padding-inline: 10px;
+    text-align: center;
+    font-family: barlow;
+  }
+  .menu__vegnut-container {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 10px 50px;
+  }
+  .menu__product-vegeterian {
+    font-weight: 300;
+  }
+  .menu__product-nuts {
+    font-weight: 300;
+  }
+  .menu__product-spiciness {
+    margin-left: 10px;
+    font-weight: bold;
+    color: rgb(124, 11, 11);
+  }
+  .menu__product-price {
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: barlow;
+    color: rgb(1, 94, 1);
+  }
+  .menu__cart-btn {
+    display: block;
+    margin-top: auto;
+    background-color: rgb(124, 11, 11);
+    border: none;
+    border-top: 1px solid black;
+    height: 40px;
+    color: #F9F2EA;
+    font-weight: 300;
+    cursor: pointer;
+    font-family: barlow;
+  }
   .mobile-filter {
     width: 80%;
     height: 100dvh;
@@ -244,6 +318,34 @@
     padding: 5px;
     font-size: 16px;
   }
+  .desktop-filter {
+    display: none;
+  }
+}
+@media screen and (min-width: 425px) {
+  .menu__container {
+    grid-auto-rows: minmax(0, 120vw);
+  }
+  .menu__product-lower-side {
+    gap: 15px;
+  }
+  .menu__vegnut-container {
+    padding-inline: 20px 60px;
+  }
+  .menu__product-vegeterian {
+    font-size: 18px;
+  }
+  .menu__product-nuts {
+    font-size: 18px;
+  }
+  .menu__product-spiciness {
+    margin-left: 20px;
+    font-size: 18px;
+  }
+  .menu__product-price {
+    margin-left: 20px;
+    font-size: 24px;
+  }
 }
 @media screen and (min-width: 768px) {
   .delivery-method {
@@ -257,6 +359,16 @@
   }
   .menu__categories {
     width: 100%;
+  }
+  .menu__filter-text-container {
+    margin-left: 85%;
+  }
+  .menu__container {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(0, 68vw);
+  }
+  .mobile-filter {
+    width: 50%;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -278,5 +390,94 @@
   }
   .menu__category {
     font-size: 16px;
+  }
+  .menu__filter-text-container {
+    display: none;
+  }
+  .menu__dark-bg {
+    display: none;
+  }
+  .menu__products-container {
+    width: 100%;
+    display: flex;
+  }
+  .menu__container {
+    width: 80%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: minmax(0, 42vw);
+  }
+  .menu__product-name {
+    white-space: nowrap;
+  }
+  .menu__vegnut-container {
+    padding-inline: 20px 20px;
+  }
+  .menu__cart-btn {
+    font-size: 18px;
+  }
+  .mobile-filter {
+    display: none;
+  }
+  .desktop-filter {
+    display: block;
+    width: 20%;
+    height: 100vh;
+    margin-top: 30px;
+    margin-right: 40px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(158, 158, 158);
+  }
+  .desktop-filter__upper-side {
+    border-bottom: 1px solid black;
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .desktop-filter__filter-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .desktop-filter__reset-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .desktop-filter__filters {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .desktop-filter__checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .desktop-filter__label {
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .desktop-filter__number {
+    width: 29px;
+    font-size: 16px;
+    outline: none;
+  }
+  .desktop-filter__select {
+    font-size: 16px;
+    padding: 5px;
+    outline: none;
+    font-weight: 300;
+  }
+}
+@media screen and (min-width: 1324px) {
+  .menu__container {
+    width: 80%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: minmax(0, 38vw);
   }
 }/*# sourceMappingURL=order.css.map */

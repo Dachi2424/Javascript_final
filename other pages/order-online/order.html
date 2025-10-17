@@ -71,7 +71,7 @@
     </section>
     <section class="menu">
       <ul class="menu__categories">
-        <li class="menu__category menu__category--active">ALL</li>        
+        <li onclick="showAll()" class="menu__category menu__category--active">ALL</li>        
       </ul>
       <div onclick="openMobileFilter()" class="menu__filter-text-container">
         <i class="fa-solid fa-filter"></i>
@@ -102,8 +102,34 @@
 
         </div>
       </form>
-      <div class="menu__container">
-        
+      <div class="menu__products-container">
+        <form class="desktop-filter">
+          <div class="desktop-filter__upper-side">
+            <button type="submit" onclick="hideMobileFilter()" class="desktop-filter__filter-btn"><i class="fa-solid fa-xmark desktop-filter__xmark"></i> Filter</button>
+            <button type="reset" class="desktop-filter__reset-btn"><i class="fa-solid fa-trash desktop-filter__trash-icon"></i> Clear</button>
+          </div>
+          <div class="desktop-filter__filters">
+            <div class="desktop-filter__checkbox-container">
+              <input class="desktop-filter__checkbox" type="checkbox" name="vegeterian" id="dvegeterian">
+              <label class="desktop-filter__label" for="dvegeterian">Vegeterian</label>
+            </div>
+            <div class="desktop-filter__checkbox-container">
+              <input class="desktop-filter__checkbox" type="checkbox" name="nuts" id="dnuts">
+              <label class="desktop-filter__label" for="dnuts">Nuts</label>
+            </div>
+            <div class="desktop-filter__checkbox-container">
+              <input class="desktop-filter__number" type="number" id="dspiciness" name="spiciness">
+              <label class="desktop-filter__label" for="dspiciness">Spiciness level</label>
+            </div>
+            <select class="desktop-filter__select" name="categoryId" id="desktopSelect">
+              <option value="">Select Category</option>
+            </select>
+          </div>
+        </form>
+        <div class="menu__container">
+          
+          
+        </div>
       </div>
     </section>
   </main>
