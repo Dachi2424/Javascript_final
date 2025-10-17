@@ -57,6 +57,24 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, {
   threshold: 0 // 30% visible before triggering
 })
-
-
 observer.observe(favoritesContainer)
+
+
+
+
+
+function scrollLef(){
+  let container = document.querySelector(".slider__grid-container")
+  container.scrollBy({
+    left: -350
+  })
+}
+function scrollRight(){
+  let container = document.querySelector(".slider__grid-container")
+  container.scrollBy({
+    left: 350
+  })
+}
+
+
+

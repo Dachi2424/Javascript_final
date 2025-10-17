@@ -530,6 +530,31 @@
     font-weight: 200;
     transition: 0.3s;
   }
+  .slider {
+    background-color: #F9F2EA;
+    padding: 20px;
+  }
+  .slider__header {
+    font-weight: 600;
+    font-size: 26px;
+    font-family: barlow;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .slider__grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(0, 40vw);
+  }
+  .slider__image {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    cursor: pointer;
+  }
 }
 @media screen and (min-width: 768px) {
   .header__menu {
@@ -784,7 +809,7 @@
     line-height: 30px;
   }
   .delivery {
-    height: 60svh;
+    height: 60vh;
     padding: 0 80px 0;
     background-color: #F9F2EA;
   }
@@ -792,10 +817,10 @@
     background-position: 0px 50px;
   }
   .delivery__text-container {
-    width: 32%;
+    width: 47%;
     margin-left: auto;
-    margin-right: 50px;
-    padding: 70px 50px 30px;
+    margin-right: 20px;
+    padding: 60px 46px 30px;
     gap: 26px;
   }
   .delivery__header {
@@ -816,5 +841,47 @@
   }
   .delivery__link {
     font-size: 18px;
+  }
+  .slider {
+    padding: 110px 80px 40px;
+    position: relative;
+  }
+  .slider__header {
+    font-size: 40px;
+  }
+  .slider__grid-container {
+    width: 100%;
+    overflow-x: auto;
+    grid-template-columns: repeat(8, 27vw);
+    grid-auto-rows: minmax(0, 27vw);
+    scroll-behavior: smooth;
+  }
+  .slider__grid-container::-webkit-scrollbar {
+    display: none;
+  }
+  .slider__arrow-container {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 32%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  .slider__arrow-container--right {
+    right: 110px;
+  }
+  .slider__arrow-container--left {
+    left: 110px;
+  }
+  .slider__arrow {
+    font-size: 20px;
+    font-weight: 200;
+    transform: scaleY(1.8);
   }
 }/*# sourceMappingURL=style.css.map */
