@@ -473,6 +473,74 @@
       object-fit: cover;
     }
   }
+  .delivery{
+    height: 70svh;
+    &__main-container{
+      width: 100%;
+      height: 100%;
+      background-image: url(./images/main-pack.avif);
+      background-size: cover;
+      background-position: -220px 150px;
+      background-repeat: no-repeat;
+      background-color: #FBE690;
+    }
+    &__text-container{
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      padding: 30px 50px 30px;
+    }
+    &__header{
+      font-size: 26px;
+      font-family: barlow;
+      font-weight: 600;
+      text-align: center;
+    }
+    &__subtitle{
+      font-family: barlow;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+    }
+    &__paragraph{
+      font-weight: 200;
+      font-size: 15px;
+      line-height: 24px;
+      text-align: center;
+    }
+    &__order-btn{
+      background-color: var(--main-color);
+      border: 1px solid var(--main-color);
+      color: white;
+      font-size: 16px;
+      width: 180px;
+      height: 50px;
+      font-weight: 200;
+      cursor: pointer;
+      margin-top: auto;
+      transition: .3s;
+      &:hover{
+        color: var(--main-color);
+        background-color: white;
+        transition: .3s;
+      }
+      &:hover .delivery__link{
+        color: var(--main-color);
+        transition: .3s;
+      }
+    }
+    &__link{
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 200;
+      transition: .3s;
+    }
+  }
 }
 
 
@@ -573,6 +641,14 @@
     &__image{
       height: 100%;
       width: 45%;
+    }
+  }
+  .delivery{
+    height: 60svh;
+    padding: 0 50px 0;
+    background-color: #F9F2EA;
+    &__main-container{
+      background-position: -100px 100px;
     }
   }
 }
@@ -750,6 +826,40 @@
       font-size: 18px;
       width: 350px;
       line-height: 30px;
+    }
+  }
+  .delivery{
+    height: 60svh;
+    padding: 0 80px 0;
+    background-color: #F9F2EA;
+    &__main-container{
+      background-position: 0px 50px;
+    }
+    &__text-container{
+      width: 32%;
+      margin-left: auto;
+      margin-right: 50px;
+      padding: 70px 50px 30px;
+      gap: 26px;
+    }
+    &__header{
+      font-size: 40px;
+    }
+    &__subtitle{
+      font-size: 22px;
+      line-height: 30px;
+    }
+    &__paragraph{
+      font-size: 18px;
+      line-height: 30px;
+    }
+    &__order-btn{
+      height: 62px;
+      width: 230px;
+      margin-top: unset;
+    }
+    &__link{
+      font-size: 18px;
     }
   }
 }
