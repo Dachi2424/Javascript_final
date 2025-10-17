@@ -69,7 +69,56 @@
         </div>
       </div>
     </section>
+    <section class="menu">
+      <ul class="menu__categories">
+        <li class="menu__category menu__category--active">ALL</li>        
+      </ul>
+      <div onclick="openMobileFilter()" class="menu__filter-text-container">
+        <i class="fa-solid fa-filter"></i>
+        <span class="menu__filter-text-mobile">Filter</span>
+      </div>
+      <div onclick="hideMobileFilter()" class="menu__dark-bg"></div>
+      <form onsubmit="applyFilter(event)" class="mobile-filter">
+        <div class="mobile-filter__upper-side">
+          <button type="submit" onclick="hideMobileFilter()" class="mobile-filter__filter-btn"><i class="fa-solid fa-xmark mobile-filter__xmark"></i> Filter</button>
+          <button type="reset" class="mobile-filter__reset-btn"><i class="fa-solid fa-trash mobile-filter__trash-icon"></i> Clear</button>
+        </div>
+        <div class="mobile-filter__filters">
+          <div class="mobile-filter__checkbox-container">
+            <input class="mobile-filter__checkbox" type="checkbox" name="vegeterian" id="vegeterian">
+            <label class="mobile-filter__label" for="vegeterian">Vegeterian</label>
+          </div>
+          <div class="mobile-filter__checkbox-container">
+            <input class="mobile-filter__checkbox" type="checkbox" name="nuts" id="nuts">
+            <label class="mobile-filter__label" for="nuts">Nuts</label>
+          </div>
+          <div class="mobile-filter__checkbox-container">
+            <input class="mobile-filter__number" type="number" id="spiciness" name="spiciness">
+            <label class="mobile-filter__label" for="spiciness">Spiciness level</label>
+          </div>
+          <select class="mobile-filter__select" name="categoryId" id="mobileSelect">
+            <option value="">Select Category</option>
+          </select>
+
+        </div>
+      </form>
+      <div class="menu__container">
+        
+      </div>
+    </section>
   </main>
   <script src="./order.js"></script>
 </body>
 </html>
+
+
+<!-- <div class="menu__card">
+          <img class="menu__image" src="../../images/main-iceCream.avif" alt="">
+          <div class="menu__lower-side">
+            <h3 class="menu__name">Ice Cream</h3>
+            <p class="menu__spiciness">Spiciness: 3</p>
+            <p class="menu__vegeterian">Vegeterian: true</p>
+            <p class="menu__nuts">Vegeterian: false</p>
+            <h3 class="menu__price">$9.00</h3>            
+          </div>
+        </div> -->

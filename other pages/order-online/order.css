@@ -85,16 +85,184 @@
     color: black;
     transition: 0.3s;
   }
+  .menu {
+    min-height: 100svh;
+    background-color: #F9F2EA;
+    padding: 20px 20px 30px;
+  }
+  .menu__categories {
+    margin-inline: auto;
+    list-style: none;
+    width: 80%;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    margin-bottom: 30px;
+  }
+  .menu__categories::-webkit-scrollbar {
+    display: none;
+  }
+  .menu__category {
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 100;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: 0.2s;
+    padding-bottom: 5px;
+  }
+  .menu__category:hover {
+    color: rgba(0, 0, 0, 0.7);
+    transition: 0.2s;
+  }
+  .menu__category--active {
+    border-bottom: 2px solid var(--main-color);
+  }
+  .menu__category--active:hover {
+    color: black;
+  }
+  .menu__filter-text-container {
+    background-color: rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-left: 70%;
+    padding: 7px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  .menu__filter-text-mobile {
+    font-weight: 400;
+    font-family: barlow;
+  }
+  .menu__dark-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100dvh;
+    background-color: black;
+    opacity: 0;
+    transform: translateX(-100%);
+    z-index: 11;
+    transition: opacity 0.4s, transform 4s;
+  }
+  .menu__dark-bg--active {
+    transform: translateX(0);
+    opacity: 0.5;
+    transition: opacity 0.4s, transform 0.01s;
+  }
+  .menu__container {
+    display: inline-grid;
+    width: 50%;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(0, 90vw);
+  }
+  .menu__card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .menu__image {
+    width: 100%;
+    height: 60%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+  }
+  .menu__lower-side {
+    height: 40%;
+  }
+  .mobile-filter {
+    width: 80%;
+    height: 100dvh;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 12;
+    overflow-y: auto;
+    padding: 20px;
+    display: block;
+    transform: translateX(100%);
+    transition: transform 0.4s;
+  }
+  .mobile-filter--active {
+    transform: translateX(0);
+    transition: transform 0.4s;
+  }
+  .mobile-filter__upper-side {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(163, 163, 163);
+    padding-bottom: 15px;
+  }
+  .mobile-filter__filter-btn {
+    background-color: white;
+    border: none;
+    font-weight: 400;
+    font-size: 17px;
+    cursor: pointer;
+  }
+  .mobile-filter__reset-btn {
+    border: none;
+    background-color: white;
+    font-weight: 400;
+    font-size: 17px;
+    cursor: pointer;
+  }
+  .mobile-filter__filters {
+    padding: 15px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .mobile-filter__checkbox-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .mobile-filter__label {
+    font-size: 18px;
+    font-family: barlow;
+  }
+  .mobile-filter__number {
+    outline: none;
+    width: 30px;
+    font-size: 16px;
+    font-weight: 200;
+  }
+  .mobile-filter__select {
+    font-weight: 400;
+    font-family: barlow;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+  }
 }
 @media screen and (min-width: 768px) {
+  .delivery-method {
+    padding: 30px 40px 30px;
+  }
   .delivery-method__header {
     font-size: 60px;
+  }
+  .menu {
+    padding: 20px 40px 30px;
+  }
+  .menu__categories {
+    width: 100%;
   }
 }
 @media screen and (min-width: 1024px) {
   .delivery-method {
     height: unset;
-    padding: 30px 50px 50px;
+    padding: 30px 60px 50px;
   }
   .delivery-method__header {
     font-size: 120px;
@@ -103,6 +271,12 @@
     width: 340px;
   }
   .delivery-method__text {
+    font-size: 16px;
+  }
+  .menu__categories {
+    gap: 30px;
+  }
+  .menu__category {
     font-size: 16px;
   }
 }/*# sourceMappingURL=order.css.map */
