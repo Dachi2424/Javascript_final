@@ -103,3 +103,32 @@ function card(product){
             <button class="menu__cart-btn">ADD TO CART</button>
           </div>`
 }
+
+
+
+
+
+function applyFilter(){
+  let vegeterian = document.getElementById("vegeterian")
+  let nuts = document.getElementById("nuts")
+  let spiciness = document.getElementById("spiciness")
+  let category = document.getElementById("mobileSelect")
+
+  menuContainer.innerHTML = ""
+  fetch(`https://restaurant.stepprojects.ge/api/Products/GetFiltered?vegeterian=${vegeterian.checked}&nuts=${nuts.checked}&spiciness=${spiciness.value}&categoryId=${category.value}`)
+  .then(res => res.json())
+  .then(data => data.forEach( item => menuContainer.innerHTML += card(item)))
+}
+
+function applyFilterDesktop(){
+  let vegeterian = document.getElementById("dvegeterian")
+  let nuts = document.getElementById("dnuts")
+  let spiciness = document.getElementById("dspiciness")
+  let category = document.getElementById("desktopSelect")
+
+  menuContainer.innerHTML = ""
+  fetch(`https://restaurant.stepprojects.ge/api/Products/GetFiltered?vegeterian=${vegeterian.checked}&nuts=${nuts.checked}&spiciness=${spiciness.value}&categoryId=${category.value}`)
+  .then(res => res.json())
+  .then(data => data.forEach( item => menuContainer.innerHTML += card(item)))
+}
+

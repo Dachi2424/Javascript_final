@@ -78,10 +78,10 @@
         <span class="menu__filter-text-mobile">Filter</span>
       </div>
       <div onclick="hideMobileFilter()" class="menu__dark-bg"></div>
-      <form onsubmit="applyFilter(event)" class="mobile-filter">
+      <div class="mobile-filter">
         <div class="mobile-filter__upper-side">
-          <button type="submit" onclick="hideMobileFilter()" class="mobile-filter__filter-btn"><i class="fa-solid fa-xmark mobile-filter__xmark"></i> Filter</button>
-          <button type="reset" class="mobile-filter__reset-btn"><i class="fa-solid fa-trash mobile-filter__trash-icon"></i> Clear</button>
+          <button onclick="applyFilter(), hideMobileFilter()"  class="mobile-filter__filter-btn"><i class="fa-solid fa-xmark mobile-filter__xmark"></i> Filter</button>
+          <button onclick="showAll()" class="mobile-filter__reset-btn"><i class="fa-solid fa-trash mobile-filter__trash-icon"></i> Clear</button>
         </div>
         <div class="mobile-filter__filters">
           <div class="mobile-filter__checkbox-container">
@@ -101,12 +101,12 @@
           </select>
 
         </div>
-      </form>
+      </div>
       <div class="menu__products-container">
-        <form class="desktop-filter">
+        <div class="desktop-filter">
           <div class="desktop-filter__upper-side">
-            <button type="submit" onclick="hideMobileFilter()" class="desktop-filter__filter-btn"><i class="fa-solid fa-xmark desktop-filter__xmark"></i> Filter</button>
-            <button type="reset" class="desktop-filter__reset-btn"><i class="fa-solid fa-trash desktop-filter__trash-icon"></i> Clear</button>
+            <button onclick="applyFilterDesktop()" class="desktop-filter__filter-btn"><i class="fa-solid fa-xmark desktop-filter__xmark"></i> Filter</button>
+            <button onclick="showAll()" class="desktop-filter__reset-btn"><i class="fa-solid fa-trash desktop-filter__trash-icon"></i> Clear</button>
           </div>
           <div class="desktop-filter__filters">
             <div class="desktop-filter__checkbox-container">
@@ -125,7 +125,7 @@
               <option value="">Select Category</option>
             </select>
           </div>
-        </form>
+        </div>
         <div class="menu__container">
           
           
