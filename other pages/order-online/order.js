@@ -178,11 +178,43 @@ function addToCart(id, price){
   sideCart.innerHTML = `<span class="header__cart-text">Cart <span class="header__cart-items-quantity">(0 items)</span> <i onclick="closeCartContainer()" class="fa-solid fa-xmark header__cart-xmark"></i></span>
         <div class="header__cart-strip"></div>`
 
-  let cartInfo = {
-    quantity: 1,
-    price: price,
-    productId: id
-  }
+  fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
+  .then(res => res.json())
+  .then(data => {
+    const existingItem = data.find(item => item.product.id === id);
+
+    if(existingItem){
+      const newQuantity = existingItem.quantity + 1 ;
+      return fetch("https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket", {
+        method: "PUT",
+        headers: {
+          accept: "*/*",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          productId: id,
+          quantity: newQuantity,
+        })
+      }).then(() => showSideCart())
+    } else{
+      return fetch("https://restaurant.stepprojects.ge/api/Baskets/AddToBasket", {
+        method: "POST",
+        headers: {
+          accept: "text/plain",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          quantity: 1,
+          price: price,
+          productId: id
+        })
+      }).then(() => {
+        showSideCart();
+        alert("Cart updated successfully")
+      })
+      .catch(err => console.err("Error adding to cart:", err));
+    }
+  })
 
   fetch("https://restaurant.stepprojects.ge/api/Baskets/AddToBasket", {
     method: "POST",
