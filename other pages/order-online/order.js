@@ -100,7 +100,7 @@ function card(product){
               <p class="menu__product-spiciness">Spiciness Level: ${product.spiciness}</p>
               <p class="menu__product-price">$${product.price}</p>
             </div>
-            <button class="menu__cart-btn">ADD TO CART</button>
+            <button onclick="addToCart(${product.id}, ${product.price})" class="menu__cart-btn">ADD TO CART</button>
           </div>`
 }
 
@@ -131,4 +131,125 @@ function applyFilterDesktop(){
   .then(res => res.json())
   .then(data => data.forEach( item => menuContainer.innerHTML += card(item)))
 }
+
+
+
+
+
+
+
+
+
+//sidecart functions
+let sideCart = document.querySelector(".header__cart-container")
+
+//get
+
+function showSideCart(){
+fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
+.then(res => res.json())
+.then(data => data.forEach(item => sideCart.innerHTML += sideCartProduct(item)))
+.catch(err => console.error("Error loading cart:", err))
+}
+
+showSideCart()
+
+
+function sideCartProduct(item){
+  return `<div class="header__cart-product-card">
+          <img class="header__card-product-image" src="${item.product.image}" alt="">
+          <div class="header__card-right-side">
+            <p class="header__card-product-name">${item.product.name}</p>
+            <p class="header__card-price">$${item.product.price}</p>
+            <div class="header__card-quantity-container">
+              <button onclick="updateQuantity(${item.product.id},${item.quantity - 1})" class="header__card-quantity-button">-</button>
+              <p class="header__card-quantity">${item.quantity}</p>
+              <button onclick="updateQuantity(${item.product.id}, ${item.quantity + 1})" class="header__card-quantity-button">+</button>
+            </div>
+            <button onclick="deleteFromCart(${item.product.id})" class="header__card-delete-btn">Delete</button>
+          </div>
+        </div>`
+}
+
+
+//post
+
+function addToCart(id, price){
+  sideCart.innerHTML = `<span class="header__cart-text">Cart <span class="header__cart-items-quantity">(0 items)</span> <i onclick="closeCartContainer()" class="fa-solid fa-xmark header__cart-xmark"></i></span>
+        <div class="header__cart-strip"></div>`
+
+  let cartInfo = {
+    quantity: 1,
+    price: price,
+    productId: id
+  }
+
+  fetch("https://restaurant.stepprojects.ge/api/Baskets/AddToBasket", {
+    method: "POST",
+    headers: {
+      accept: "text/plain",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(cartInfo)
+  }).then(res => res.json())
+  .then(() => {
+    alert("Succesfully added to cart")
+    showSideCart()
+  })
+  .catch(err => console.error("Add t0 cart failed:", err))
+}
+
+//delete
+
+function deleteFromCart(id){
+  sideCart.innerHTML = `<span class="header__cart-text">Cart <span class="header__cart-items-quantity">(0 items)</span> <i onclick="closeCartContainer()" class="fa-solid fa-xmark header__cart-xmark"></i></span>
+        <div class="header__cart-strip"></div>`
+  
+  fetch(`https://restaurant.stepprojects.ge/api/Baskets/DeleteProduct/${id}`, {
+    method: "DELETE",
+    headers: {
+      accept: "*/*"
+    }
+  }).then(res => res.text())
+  .then(() => {
+    showSideCart()
+  })
+  .catch(() => console.error("error"))
+}
+
+
+
+
+//put
+
+function updateQuantity(id, quantity){
+
+  if (quantity < 1) return deleteFromCart(id);
+
+  fetch("https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket", {
+    method: "PUT",
+    headers: {
+      accept: "*/*",
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      productId: id,
+      quantity: quantity
+    }) 
+  }).then(res => {
+    if(!res.ok) throw new Error("Failed to update quantity");
+    return res.text();
+  }
+  )
+  .then(() => {
+    sideCart.innerHTML = `<span class="header__cart-text">Cart <span class="header__cart-items-quantity">(0 items)</span> <i onclick="closeCartContainer()" class="fa-solid fa-xmark header__cart-xmark"></i></span>
+        <div class="header__cart-strip"></div>`;
+        showSideCart()
+        console.log(quantity);
+        
+  })
+  .catch(err => console.error("Failed updating basket", err))
+
+}
+
 
