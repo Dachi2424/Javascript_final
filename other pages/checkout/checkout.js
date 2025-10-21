@@ -32,6 +32,9 @@ function closeMenu(){
 let sideCart = document.querySelector(".header__cart-container")
 
 function showSideCart(){
+  sideCart.innerHTML = `<span class="header__cart-text">Cart <span class="header__cart-items-quantity">(0 items)</span> <i onclick="closeCartContainer()" class="fa-solid fa-xmark header__cart-xmark"></i></span>
+        <div class="header__cart-strip"></div>`
+        
 fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
 .then(res => res.json())
 .then(data => data.forEach(item => sideCart.innerHTML += sideCartProduct(item)))
