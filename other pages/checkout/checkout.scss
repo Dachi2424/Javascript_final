@@ -27,7 +27,7 @@
       gap: 20px;
     }
     &__card{
-      height: 180px;
+      height: 100%;
       width: 100%;
       display: flex;
       gap: 10px;
@@ -206,7 +206,7 @@
     &__card{
       border-bottom: none;
       border: 1px solid rgb(100, 100, 100);
-      height: 200px;
+     
     }
     &__product-name{
       margin-top: 10px;
@@ -231,10 +231,43 @@
       gap: 8px;
       margin-top: 10px;
       padding-inline: 20px;
-      
       border-bottom: 1px solid rgb(100, 100, 100);
       width: 50%;
       border-left: 1px solid rgb(100, 100, 100);
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .checkout{
+    &__product-container{
+      width: 90%;
+      grid-auto-rows: minmax(0, 18vw);
+      min-height: 50vh;
+    }
+    &__product-name{
+      font-size: 20px;
+      margin-top: 15px;
+    }
+    &__product-price{
+      font-size: 18px;
+    }
+    &__quantity-btn{
+      width: 30px;
+      height: 30px;
+      font-size: 22px;
+    }
+    &__quantity{
+      font-size: 18px;
+    }
+    &__total-price{
+      font-size: 20px;
+    }
+    &__delete-btn{
+      font-size: 19px;
+      height: 40px;
+      width: 200px;
+      margin-bottom: 40px;
     }
   }
 }

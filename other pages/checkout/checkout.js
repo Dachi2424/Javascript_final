@@ -105,5 +105,50 @@ function updateQuantity(id, quantity){
         
   })
   .catch(err => console.error("Failed updating basket", err))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//checkout
+let checkoutContainer = document.querySelector(".checkout__product-container")
+
+function updateCheckout(){
+  fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
+  .then(res => res.json())
+  .then(data => data.forEach(item => checkoutContainer.innerHTML += addCheckoutProduct(item)))
 
 }
+function addCheckoutProduct(item){
+  return `<div class="checkout__card">
+          <div class="checkout__left-side">
+            <img class="checkout__image" src="${item.product.image}" alt="${item.product.name}">
+          </div>
+          <div class="checkout__right-side">
+            <p class="checkout__product-name">${item.product.name}</p>
+            <p class="checkout__product-price">$${item.product.price}</p>
+            <div class="checkout__quantity-container">
+              <button class="checkout__quantity-btn">-</button>
+              <p class="checkout__quantity">${item.quantity}</p>
+              <button class="checkout__quantity-btn">+</button>
+              <p class="checkout__total-price">$${item.price}</p>
+            </div>
+            <button class="checkout__delete-btn">Delete</button>
+          </div>
+        </div>`
+}
+
+updateCheckout()
