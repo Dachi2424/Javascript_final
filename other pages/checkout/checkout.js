@@ -127,10 +127,17 @@ function updateQuantity(id, quantity){
 let checkoutContainer = document.querySelector(".checkout__product-container")
 
 function updateCheckout(){
+  checkoutContainer.innerHTML = ""
+
   fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
   .then(res => res.json())
-  .then(data => data.forEach(item => checkoutContainer.innerHTML += addCheckoutProduct(item)))
-
+  .then(data => {
+    if(data.length === 0){
+      checkoutContainer.innerHTML = "<p class='checkout__empty-cart-text'>Your cart is empty</p>"
+    }else{
+      data.forEach(item => checkoutContainer.innerHTML += addCheckoutProduct(item))
+    }
+  })
 }
 function addCheckoutProduct(item){
   return `<div class="checkout__card">
@@ -141,14 +148,101 @@ function addCheckoutProduct(item){
             <p class="checkout__product-name">${item.product.name}</p>
             <p class="checkout__product-price">$${item.product.price}</p>
             <div class="checkout__quantity-container">
-              <button class="checkout__quantity-btn">-</button>
+              <button onclick="raodenobaMinus(${item.quantity - 1}, ${item.product.price * (item.quantity - 1)}, ${item.product.id})" class="checkout__quantity-btn">-</button>
               <p class="checkout__quantity">${item.quantity}</p>
-              <button class="checkout__quantity-btn">+</button>
-              <p class="checkout__total-price">$${item.price}</p>
+              <button onclick="raodenobaPlus(${item.quantity + 1}, ${item.product.price * (item.quantity + 1)}, ${item.product.id})" class="checkout__quantity-btn">+</button>
+              <p class="checkout__total-price">$${(item.product.price * (item.quantity)).toFixed(2)}</p>
             </div>
-            <button class="checkout__delete-btn">Delete</button>
+            <button onclick="deleteFromCheckout(${item.product.id})" class="checkout__delete-btn">Delete</button>
           </div>
         </div>`
 }
-
 updateCheckout()
+
+
+
+//delete from checkout
+
+function deleteFromCheckout(id){
+  fetch(`https://restaurant.stepprojects.ge/api/Baskets/DeleteProduct/${id}`, {
+    method: "DELETE",
+    headers: {
+      accept: "*/*"
+    },
+    body: JSON.stringify({})
+
+  }).then(res => res.text())
+  .then(() => {
+    updateCheckout();
+    updateTotal();
+  })
+  .catch(err => console.error(err))
+}
+
+
+// put
+function raodenobaMinus(quantity, totalPrice, productId){
+  if(quantity <= 0){
+    return deleteFromCheckout(productId)
+  }else{
+  fetch("https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket", {
+      method: "PUT",
+      headers: {
+        accept: "*/*",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        quantity: quantity,
+        price: totalPrice,
+        productId: productId
+      })
+    }).then(res => res.text())
+  .then(() => {
+    updateCheckout()
+    updateTotal()  
+  })
+    .catch(err => console.error(err))
+    }
+}
+
+
+function raodenobaPlus(quantity, totalPrice, productId){
+  fetch("https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket", {
+      method: "PUT",
+      headers: {
+        accept: "*/*",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        quantity: quantity,
+        price: totalPrice,
+        productId: productId
+      })
+    }).then(res => res.text())
+    .then(() => {
+      updateCheckout();
+      updateTotal()
+    })
+    .catch(err => console.error(err))
+}
+
+
+
+
+
+//total
+let total = document.querySelector(".checkout__total-price")
+
+function updateTotal(){
+  total.innerHTML = ""
+fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
+.then(res => res.json())
+.then(data => {
+  const totalAmount = data.reduce((sum, item) => sum + item.price, 0)
+
+  total.innerHTML = `$${totalAmount.toFixed(2)}`
+
+})
+.catch(err => console.error(err))
+}
+updateTotal()

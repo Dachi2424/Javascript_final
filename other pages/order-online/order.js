@@ -146,9 +146,18 @@ let sideCart = document.querySelector(".header__cart-container")
 //get
 
 function showSideCart(){
+  sideCart.innerHTML = `<span class="header__cart-text">Cart <span class="header__cart-items-quantity">(0 items)</span> <i onclick="closeCartContainer()" class="fa-solid fa-xmark header__cart-xmark"></i></span>
+        <div class="header__cart-strip"></div>`
+
 fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
 .then(res => res.json())
-.then(data => data.forEach(item => sideCart.innerHTML += sideCartProduct(item)))
+.then(data => {
+  if(data.length === 0){
+    sideCart.innerHTML += `<p class="header__empty-cart-text">Your cart is empty</p>`
+  } else {
+    data.forEach(item => sideCart.innerHTML += sideCartProduct(item))
+  }
+})
 .catch(err => console.error("Error loading cart:", err))
 }
 
@@ -162,9 +171,9 @@ function sideCartProduct(item){
             <p class="header__card-product-name">${item.product.name}</p>
             <p class="header__card-price">$${item.product.price}</p>
             <div class="header__card-quantity-container">
-              <button onclick="updateQuantity(${item.product.id},${item.quantity - 1})" class="header__card-quantity-button">-</button>
+              <button onclick="updateQuantity(${item.product.id},${item.quantity - 1}, ${item.price})" class="header__card-quantity-button">-</button>
               <p class="header__card-quantity">${item.quantity}</p>
-              <button onclick="updateQuantity(${item.product.id}, ${item.quantity + 1})" class="header__card-quantity-button">+</button>
+              <button onclick="updateQuantity(${item.product.id}, ${item.quantity + 1}, ${item.price})" class="header__card-quantity-button">+</button>
             </div>
             <button onclick="deleteFromCart(${item.product.id})" class="header__card-delete-btn">Delete</button>
           </div>
@@ -254,7 +263,7 @@ function deleteFromCart(id){
 
 //put
 
-function updateQuantity(id, quantity){
+function updateQuantity(id, quantity, price){
 
   if (quantity < 1) return deleteFromCart(id);
 
@@ -266,7 +275,8 @@ function updateQuantity(id, quantity){
     },
     body: JSON.stringify({
       productId: id,
-      quantity: quantity
+      quantity: quantity,
+      price: price
     }) 
   }).then(res => {
     if(!res.ok) throw new Error("Failed to update quantity");
