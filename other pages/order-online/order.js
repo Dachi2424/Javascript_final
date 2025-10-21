@@ -250,7 +250,7 @@ function addToCart(id, price){
         
         setTimeout(() => {
           showCartContainer();
-        }, 200)
+        }, 100)
       })
       .catch(err => console.err("Error adding to cart:", err));
     }

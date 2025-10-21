@@ -547,6 +547,17 @@
 }
 
 
+@media screen and (min-width: 1250px){
+  .menu{
+    &__scroll-left{
+      display: none;
+    }
+    &__scroll-right{
+      display: none;
+    }
+  }
+}
+
 
 
 

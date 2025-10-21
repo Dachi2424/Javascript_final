@@ -508,6 +508,14 @@
     font-weight: 300;
   }
 }
+@media screen and (min-width: 1250px) {
+  .menu__scroll-left {
+    display: none;
+  }
+  .menu__scroll-right {
+    display: none;
+  }
+}
 @media screen and (min-width: 1324px) {
   .menu__container {
     width: 80%;
