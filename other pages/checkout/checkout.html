@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="./checkout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header class="header">
+    <a class="header__logo" href="../../index.html">DA CRUST<sup><i class="fa-solid fa-star header__logo-star"></i></sup></a>
+    <nav class="header__nav">
+      <ul class="header__ul header__ul--desktop">
+        <li class="header__list"><a href="../../index.html" class="header__link header__link--desktop">Home</a></li>
+        <li class="header__list"><a href="../menu/menu.html" class="header__link header__link--desktop">Menu</a></li>
+        <li class="header__list"><a href="../order-online/order.html" class="header__link header__link--desktop">Order Online</a></li>
+        <li class="header__list"><a href="./checkout.html" class="header__link header__link--active header__link--desktop">Checkout</a></li>
+      </ul>
+      <div class="header__login header__login--desktop">
+        <i class="fa-solid fa-circle-user header__user-icon"></i>
+        <span class="header__login-text">Log In</span>
+      </div>
+      <div onclick="showCartContainer()" class="header__cart-logo">
+        <img class="header__cart-img" src="../../assets/cart-logo.png" alt="cart icon">
+      </div>
+      <div onclick="closeCartContainer()" class="header__dark-bg"></div>
+      <div class="header__cart-container">
+        <span class="header__cart-text">Cart <span class="header__cart-items-quantity">(0 items)</span> <i onclick="closeCartContainer()" class="fa-solid fa-xmark header__cart-xmark"></i></span>
+        <div class="header__cart-strip"></div>
+        <!-- <div class="header__cart-product-card">
+          <img class="header__card-product-image" src="" alt="">
+          <div class="header__card-right-side">
+            <p class="header__card-product-name"></p>
+            <p class="header__card-price"></p>
+            <button class="header__card-delete-btn">Delete</button>
+          </div>
+        </div> -->
+      </div>
+      <i onclick="openMenu()" class="fa-solid fa-bars header__burger-bars"></i>
+      <div class="header__menu">
+        <i onclick="closeMenu()" class="fa-solid fa-xmark header__menu-xmark"></i>
+        <div class="header__login">
+          <i class="fa-solid fa-circle-user header__user-icon"></i>
+          <span class="header__login-text">Log In</span>
+        </div>
+        <ul class="header__ul">
+          <li class="header__list"><a href="../../index.html" class="header__link">Home</a></li>
+          <li class="header__list"><a href="../menu/menu.html" class="header__link">Menu</a></li>
+          <li class="header__list"><a href="../order-online/order.html" class="header__link">Order Online</a></li>
+          <li class="header__list"><a href="./checkout.html" class="header__link header__link--active">Checkout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    
+  </main>
+  <script src="./checkout.js"></script>
+</body>
+</html>
