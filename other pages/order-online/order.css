@@ -89,6 +89,39 @@
     min-height: 100svh;
     background-color: #F9F2EA;
     padding: 20px 20px 30px;
+    position: relative;
+  }
+  .menu__scroll-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 20px;
+    font-size: 20px;
+    font-family: barlow;
+    cursor: pointer;
+    transform: scaleY(1.5);
+    color: var(--main-color);
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    z-index: 3;
+  }
+  .menu__scroll-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 20px;
+    font-size: 20px;
+    font-family: barlow;
+    cursor: pointer;
+    transform: scaleY(1.5);
+    color: var(--main-color);
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    z-index: 3;
   }
   .menu__categories {
     margin-inline: auto;
@@ -100,6 +133,7 @@
     align-items: center;
     overflow-x: auto;
     margin-bottom: 30px;
+    scroll-behavior: smooth;
   }
   .menu__categories::-webkit-scrollbar {
     display: none;

@@ -26,6 +26,22 @@ function closeMenu(){
 
 
 
+function scrollLef(){
+  let ul = document.querySelector(".menu__categories")
+  ul.scrollBy({
+    left: -200
+  })
+}
+function scrollRight(){
+  let ul = document.querySelector(".menu__categories")
+  ul.scrollBy({
+    left: 200
+  })
+}
+
+
+
+
 
 function openMobileFilter(){
   let filterMobile = document.querySelector(".mobile-filter")
@@ -46,12 +62,18 @@ function hideMobileFilter(){
 let categories = document.querySelector(".menu__categories")
 fetch("https://restaurant.stepprojects.ge/api/Categories/GetAll")
 .then(res => res.json())
-.then(data => data.forEach(category => categories.innerHTML += `<li onclick="setCategory(${category.id})" class="menu__category">${category.name.toUpperCase()}</li>`))
+.then(data => data.forEach(category => categories.innerHTML += `<li onclick="setCategory(${category.id})" id="category${category.id}" class="menu__category">${category.name.toUpperCase()}</li>`))
 //needs a function
 
 
 function setCategory(id){
   menuContainer.innerHTML = ""
+  let category = document.getElementById(`category${id}`)
+  let categoryItems = document.querySelectorAll(".menu__category")
+  categoryItems.forEach(cat => cat.classList.remove("menu__category--active"))
+  category.classList.add("menu__category--active")
+
+
   fetch(`https://restaurant.stepprojects.ge/api/Categories/GetCategory/${id}`)
   .then(res => res.json())
   .then(data => data.products.forEach(item => menuContainer.innerHTML += card(item)))
@@ -80,6 +102,12 @@ fetch("https://restaurant.stepprojects.ge/api/Categories/GetAll")
 let menuContainer = document.querySelector(".menu__container")
 function showAll(){
 menuContainer.innerHTML = ""
+let category = document.getElementById("category0")
+let categoryItems = document.querySelectorAll(".menu__category")
+categoryItems.forEach(cat => cat.classList.remove("menu__category--active"))
+
+category.classList.add("menu__category--active")
+
 fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
 .then(res => res.json())
 .then(data => data.forEach(product => menuContainer.innerHTML += card(product)))
@@ -219,7 +247,10 @@ function addToCart(id, price){
         })
       }).then(() => {
         showSideCart();
-        alert("Cart updated successfully")
+        
+        setTimeout(() => {
+          showCartContainer();
+        }, 200)
       })
       .catch(err => console.err("Error adding to cart:", err));
     }

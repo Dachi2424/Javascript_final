@@ -77,9 +77,11 @@
       </div>
     </section>
     <section class="menu">
+      <div onclick="scrollLef()" class="menu__scroll-left">&lt;</div>
       <ul class="menu__categories">
-        <li onclick="showAll()" class="menu__category menu__category--active">ALL</li>        
+        <li onclick="showAll(0)" id="category0" class="menu__category menu__category--active">ALL</li>        
       </ul>
+      <div onclick="scrollRight()" class="menu__scroll-right">&gt;</div>
       <div onclick="openMobileFilter()" class="menu__filter-text-container">
         <i class="fa-solid fa-filter"></i>
         <span class="menu__filter-text-mobile">Filter</span>
