@@ -1,3 +1,19 @@
+function showLogin(){
+  let login = document.querySelector(".login")
+  let background = document.querySelector(".login__background")
+  background.style.display = "unset"
+  login.classList.add("login--show")
+  closeMenu()
+}
+
+function closeLogin(){
+  let login = document.querySelector(".login")
+  let background = document.querySelector(".login__background")
+  background.style.display = "none"
+  login.classList.remove("login--show")
+  
+}
+
 function showCartContainer(){
   let cartContainer = document.querySelector(".header__cart-container")
   let darkBg = document.querySelector(".header__dark-bg")

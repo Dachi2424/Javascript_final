@@ -339,6 +339,89 @@
   .header__order-link-container {
     display: none;
   }
+  .login {
+    position: fixed;
+    z-index: 15;
+    top: 0;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    height: 100dvh;
+    transform: translateY(-100%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 40px;
+    gap: 20px;
+  }
+  .login--show {
+    display: flex !important;
+    transform: translateY(0);
+  }
+  .login__xmark {
+    font-size: 20px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+  }
+  .login__header {
+    font-size: 26px;
+  }
+  .login__input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+  }
+  .login__label {
+    font-weight: 200;
+    font-size: 14px;
+  }
+  .login__input {
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 12px 6px;
+    font-weight: 200;
+  }
+  .login__forgot-text {
+    align-self: flex-end;
+    font-weight: 200;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .login__submit-btn {
+    font-size: 14px;
+    color: white;
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    cursor: pointer;
+    border-radius: 100px;
+    width: 100%;
+    height: 36px;
+    transition: 0.3s;
+  }
+  .login__submit-btn:hover {
+    color: var(--main-color);
+    background-color: white;
+    transition: 0.3s;
+  }
+  .login__random-text {
+    margin-top: 40px;
+    font-weight: 200;
+    font-size: 13px;
+  }
+  .login__signup-link {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
+  .login__background {
+    display: none;
+  }
   .hero {
     height: calc(100svh - 80px);
     margin-top: 80px;
@@ -830,6 +913,32 @@
     color: white;
     font-size: 18px;
     font-weight: 200;
+  }
+  .login {
+    padding: 20px 50px;
+    width: 50%;
+    height: 480px;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    transform: translate(-50%, -210%);
+    opacity: 0;
+    box-shadow: 0 0 24px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    transition: 0.7s;
+  }
+  .login--show {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: 0.7s;
+  }
+  .login__background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
   }
   .hero {
     padding: 100px 85px;
