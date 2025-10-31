@@ -24,7 +24,7 @@
         <i class="fa-solid fa-circle-user header__user-icon"></i>
         <span class="header__login-text">Log In</span>
       </div>
-      <form class="login">
+      <form onsubmit="login(event)" class="login">
         <i onclick="closeLogin()" class="fa-solid fa-xmark login__xmark"></i>
         <h1 class="login__header">Login</h1>
         <div class="login__input-container">
@@ -145,6 +145,8 @@
   <footer class="footer">
     <p class="footer__text-container">&copy; 2035 by Da Crust. Powered and secured by <a class="footer__link" href="https://www.wix.com/?utm_campaign=vir_created_with" target="_blank">Wix</a></p>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
   <script src="./script.js"></script>
 </body>
 </html>

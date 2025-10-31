@@ -14,6 +14,29 @@ function closeLogin(){
   
 }
 
+//login logic
+function login(e){
+  e.preventDefault()
+
+  let formInfo = new FormData(e.target)
+  let finalForm = Object.fromEntries(formInfo)
+
+  fetch("https://api.everrest.educata.dev/auth/sign_in", {
+    method: "POST",
+    headers:{
+      accept: '*/*',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(finalForm)
+  }).then(res => res.json())
+  .then((data) => {
+    Cookies.set('user', data.access_token)
+  })
+  .catch(err => console.error(err))
+}
+
+
+
 function showCartContainer(){
   let cartContainer = document.querySelector(".header__cart-container")
   let darkBg = document.querySelector(".header__dark-bg")
