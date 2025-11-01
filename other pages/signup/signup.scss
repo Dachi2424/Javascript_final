@@ -1,0 +1,93 @@
+@media screen and (min-width: 320px) {
+  .signup{
+    min-height: 100svh;
+    padding: 20px 20px 30px;
+    &__text{
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    &__form{
+      display: grid;
+      width: 100%;
+      grid-template-columns: 1fr;
+      row-gap: 25px;
+    }
+    &__input-container{
+      width: 100%;
+    }
+    &__input{
+      width: 100%;
+      outline: none;
+      padding: 10px;
+      border: none;
+      border-bottom: 1px solid gray;
+      font-size: 15px;
+      &::placeholder{
+        font-weight: 200;
+      }
+    }
+    &__select{
+      font-size: 15px;
+      width: 100%;
+      outline: none;
+      padding: 10px;
+      border: none;
+      border-bottom: 1px solid gray;
+    }
+    &__submit-btn{
+      width: 100%;
+      height: 30px;
+      color: white;
+      background-color: var(--main-color);
+      border: none;
+      border-radius: 100px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    &__no-account{
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .signup{
+    padding: 30px;
+    &__form{
+      grid-template-columns: 1fr 1fr;
+      column-gap: 70px;
+      row-gap: 35px;
+    }
+    &__submit-btn{
+      grid-column: 1 / span 2;
+      height: 40px;
+      font-size: 16px;
+    }
+  }
+}
+
+
+@media screen and (min-width: 1024px){
+  .signup{
+    padding: 40px;
+    &__text{
+      margin-bottom: 50px;
+    }
+    &__form{
+      padding: 40px 40px 30px;
+      width: 900px;
+      margin-inline: auto;
+      border-radius: 14px;
+      row-gap: 50px;
+      box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+    }
+    &__no-account{
+      font-size: 17px;
+    }
+  }
+}

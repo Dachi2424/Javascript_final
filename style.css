@@ -339,6 +339,17 @@
   .header__order-link-container {
     display: none;
   }
+  .header__user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .header__user-name {
+    color: var(--main-color);
+    font-family: barlow;
+  }
   .login {
     position: fixed;
     z-index: 15;
@@ -913,6 +924,17 @@
     color: white;
     font-size: 18px;
     font-weight: 200;
+  }
+  .header__user-image {
+    width: 40px;
+    height: 40px;
+    -o-object-fit: contain;
+       object-fit: contain;
+    border-radius: 50%;
+  }
+  .header__user-name {
+    color: var(--main-color);
+    font-family: barlow;
   }
   .login {
     padding: 20px 50px;

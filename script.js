@@ -1,4 +1,4 @@
-function showLogin(){
+let showLogin = () => {
   let login = document.querySelector(".login")
   let background = document.querySelector(".login__background")
   background.style.display = "unset"
@@ -6,15 +6,15 @@ function showLogin(){
   closeMenu()
 }
 
-function closeLogin(){
+let closeLogin = () => {
   let login = document.querySelector(".login")
   let background = document.querySelector(".login__background")
   background.style.display = "none"
   login.classList.remove("login--show")
-  
 }
 
 //login logic
+let tokenIs;
 function login(e){
   e.preventDefault()
 
@@ -31,9 +31,53 @@ function login(e){
   }).then(res => res.json())
   .then((data) => {
     Cookies.set('user', data.access_token)
+    signedIn(data.access_token)
+    tokenIs = data.access_token
   })
   .catch(err => console.error(err))
 }
+
+
+//function to replace login logo with account logo
+function signedIn(token){
+  
+  fetch("https://api.everrest.educata.dev/auth", {
+    method:"GET",
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${token}`
+    }
+  }).then(res => {
+    if(!res.ok){
+      throw new Error("invaid token or user not found");
+    }
+    return res.json();
+  })
+  .then(userData => {
+    if(userData && userData.firstName && userData.avatar){
+      let loginIcon = document.getElementById("desktopLogin")
+      let loginIconMobile = document.getElementById("mobileLogin")
+
+      loginIcon.innerHTML = `<img class="header__user-image" src="${userData.avatar}" alt="">
+      <span class="header__user-name">${userData.firstName}</span>`
+      loginIconMobile.innerHTML = `<img class="header__user-image" src="${userData.avatar}" alt="">
+      <span class="header__user-name">${userData.firstName}</span>`
+
+      closeLogin()
+      showLogin = null;
+    }else{
+      console.warn("User data missing, keeping default UI.")
+    }
+  })
+  .catch(err => {
+    console.warn("profile fetch failed:", err.message);
+  })
+}
+
+
+
+
+
 
 
 

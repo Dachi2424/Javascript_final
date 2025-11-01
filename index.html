@@ -20,7 +20,7 @@
         <li class="header__list"><a href="./other pages/order-online/order.html" class="header__link header__link--desktop">Order Online</a></li>
         <li class="header__list"><a href="./other pages/checkout/checkout.html" class="header__link header__link--desktop">Checkout</a></li>
       </ul>
-      <div onclick="showLogin()" class="header__login header__login--desktop">
+      <div onclick="showLogin()" class="header__login header__login--desktop" id="desktopLogin">
         <i class="fa-solid fa-circle-user header__user-icon"></i>
         <span class="header__login-text">Log In</span>
       </div>
@@ -38,7 +38,7 @@
         <p class="login__forgot-text">Forgot password?</p>
         <button class="login__submit-btn" type="submit">LOGIN</button>
         <p class="login__random-text">Or Sign Up Using</p>
-        <a class="login__signup-link" href="">SIGN UP</a>
+        <a class="login__signup-link" href="./other pages/signup/signup.html">SIGN UP</a>
       </form>
       <div onclick="closeLogin()" class="login__background"></div>
       <div onclick="showCartContainer()" class="header__cart-logo">
@@ -54,7 +54,7 @@
       <i onclick="openMenu()" class="fa-solid fa-bars header__burger-bars"></i>
       <div class="header__menu">
         <i onclick="closeMenu()" class="fa-solid fa-xmark header__menu-xmark"></i>
-        <div onclick="showLogin()" class="header__login">
+        <div onclick="showLogin()" class="header__login" id="mobileLogin">
           <i class="fa-solid fa-circle-user header__user-icon"></i>
           <span class="header__login-text">Log In</span>
         </div>

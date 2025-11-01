@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="./signup.css">
+</head>
+<body>
+  <section class="signup">
+    <h1 class="signup__text">Register</h1>
+    <form class="signup__form" onsubmit="signUp(event)">
+      <div class="signup__input-container">
+        <input class="signup__input" type="text" name="firstName" id="fname" placeholder="First Name">
+      </div>
+      <div class="signup__input-container">
+        <input class="signup__input" type="text" name="lastName" id="lname" placeholder="Last Name">
+      </div>
+      <div class="signup__input-container">
+        <input class="signup__input" type="text" name="age" id="age" placeholder="Age">
+      </div>
+      <div class="signup__input-container">
+        <input class="signup__input" type="email" name="email" id="email" placeholder="Email">
+      </div>
+      <div class="signup__input-container">
+        <input class="signup__input" type="password" name="password" id="password" placeholder="Password">
+      </div>
+      <div class="signup__input-container">
+        <input class="signup__input" type="text" name="address" id="address" placeholder="Address">
+      </div>
+      <div class="signup__input-container">
+        <input class="signup__input" type="tel" name="phone" id="phone" placeholder="Phone" value="+995">
+      </div>
+      <div class="signup__input-container">
+        <input class="signup__input" type="text" name="zipcode" id="zipcode" placeholder="Zipcode">
+      </div>
+      <div class="signup__input-container">
+        <input class="signup__input" type="text" name="avatar" id="avatar" placeholder="Avatar">
+      </div>
+      <div class="signup__input-container">
+        <select class="signup__select" name="gender" id="gender">
+          <option value="MALE">Male</option>
+          <option value="FEMALE">Female</option>
+        </select>
+      </div>
+      <button class="signup__submit-btn" type="submit">Sign Up</button>
+    </form>
+    <a class="signup__no-account" href="../../index.html">or continue without an account</a>
+  </section>
+  
+  <script src="./signup.js"></script>
+</body>
+</html>
